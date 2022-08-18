@@ -1,0 +1,86 @@
+name: main
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [^14, ^18]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup MongoDB
+        run: bash ./.github/mongo_setup.sh
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install Dependency
+        run: yarn install --ignore-engines
+
+      - name: Build library
+        run: yarn run build
+
+      - name: Run tests
+        run: yarn run test
+
+  coverall:
+    needs: [test]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [ ^14, ^18 ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup MongoDB
+        run: bash ./.github/mongo_setup.sh
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install Dependency
+        run: yarn install --ignore-engines
+
+      - name: Build library
+        run: yarn run build
+
+      - name: Run code coverage
+        run: yarn run coverage
+
+      - name: Coveralls Parallel
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  release:
+    needs: [test,coverall]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Coveralls Finished
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          parallel-finished: true
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Dependency
+        run: yarn install --ignore-engines
+
+      - name: Build library
+        run: yarn run build
+
+      - name: Release
+        if: github.event_name == 'push' && github.repository == 'node-casbin/mongo-changestream-watcher'
+        run: npx -p semantic-release -p @semantic-release/git -p @semantic-release/changelog -p @semantic-release/commit-analyzer -p @semantic-release/release-notes-generator -p @semantic-release/release-notes-generator -p @semantic-release/changelog -p @semantic-release/git -p @semantic-release/github semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
