@@ -52,7 +52,8 @@ describe('Watcher Tests', () => {
 
   it('Callback is called in both watchers', async () => {
     enforcer = await newEnforcer('test/fixtures/basic_model.conf', adapter)
-    watcher = await MongoChangeStreamWatcher.newWatcher('mongodb://localhost:27001,localhost:27002/casbin?replicaSet=rs0', { collectionName: 'casbin_rule' })
+    await watcher.close()
+    watcher = await MongoChangeStreamWatcher.newWatcher('mongodb://localhost:27001,localhost:27002/casbin?replicaSet=rs0', { collectionName: 'casbin_rule', callbackStreamCloseEvent: true })
     watcher2 = await MongoChangeStreamWatcher.newWatcher('mongodb://localhost:27001,localhost:27002/casbin?replicaSet=rs0', { collectionName: 'casbin_rule' })
     const wprom = new Promise<void>((resolve) => {
       watcher.setUpdateCallback(() => {
@@ -77,10 +78,22 @@ describe('Watcher Tests', () => {
     expect(watcher.toggleLogger()).toBe(true)
   })
 
+  test('Should receive a close message', async () => {
+    const cb = new Promise<void>((resolve) => {
+      watcher.setUpdateCallback((change) => {
+        expect(change.operationType).toBe('close')
+        resolve()
+      })
+    })
+    await watcher.close()
+    await cb
+    expect(watcher.toggleLogger()).toBe(false)
+  })
+
   afterAll(async () => {
     await CasbinRule.deleteMany()
-    await watcher2?.close()
     await watcher?.close()
+    await watcher2?.close()
     await adapter?.close()
   })
 })
