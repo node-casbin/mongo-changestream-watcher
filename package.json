@@ -1,0 +1,97 @@
+{
+  "name": "@casbin/mongo-changestream-watcher",
+  "version": "1.0.0",
+  "description": "Casbin Watcher based on MongoDB Change Streams",
+  "main": "lib/cjs/watcher.js",
+  "typings": "lib/cjs/watcher.d.ts",
+  "module": "lib/esm/watcher.js",
+  "homepage": "https://github.com/node-casbin/mongo-changestream-watcher",
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/node-casbin/mongo-changestream-watcher.git"
+  },
+  "bugs": {
+    "url": "https://github.com/node-casbin/mongo-changestream-watcher/issues"
+  },
+  "publishConfig": {
+    "tag": "latest",
+    "registry": "https://registry.npmjs.org"
+  },
+  "scripts": {
+    "lint": "eslint . --ext .js,.ts",
+    "fmt": "eslint . --ext .js,.ts --fix",
+    "prepublishOnly": "npm run lint",
+    "test": "jest",
+    "semantic-release": "semantic-release",
+    "coverage": "jest --coverage",
+    "postpack": "run-s clean",
+    "build": "run-s clean && run-p build:*",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "clean": "rimraf lib",
+    "prepare": "npm run build && husky install"
+  },
+  "keywords": [
+    "casbin",
+    "node-casbin",
+    "watcher",
+    "mongodb"
+  ],
+  "author": {
+    "name": "Node-Casbin"
+  },
+  "contributors": [
+    {
+      "name": "Joakim Järvinen",
+      "email": "Sefriol@users.noreply.github.com",
+      "url": "https://github.com/Sefriol"
+    }
+  ],
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^28.1.7",
+    "@typescript-eslint/eslint-plugin": "^5.33.1",
+    "casbin": "^5.16.0",
+    "casbin-mongoose-adapter": "^5.1.0",
+    "coveralls": "^3.1.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.22.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-config-standard-with-typescript": "^22.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^26.8.7",
+    "eslint-plugin-n": "^15.2.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "husky": "^8.0.0",
+    "jest": "^28.1.3",
+    "jsdoc-to-markdown": "^7.1.1",
+    "npm-run-all": "^4.1.5",
+    "sinon": "^14.0.0",
+    "ts-jest": "^28.0.8",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "mongodb": "^4.8.1"
+  },
+  "peerDependencies": {
+    "casbin": "^5.16.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
