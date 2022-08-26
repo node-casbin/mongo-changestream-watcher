@@ -2,8 +2,8 @@
 
 [![NPM version][npm-image]][npm-url]
 [![NPM download][download-image]][download-url]
-[![codebeat badge](https://codebeat.co/badges/93d238e4-31cc-4865-80b6-8b6d4695c249)](https://codebeat.co/projects/github-com-node-casbin-casbin-mongo-changestream-watcher-master)
-[![Coverage Status](https://coveralls.io/repos/github/node-casbin/casbin-mongo-changestream-watcher/badge.svg?branch=master)](https://coveralls.io/repos/github/node-casbin/casbin-mongo-changestream-watcher?branch=master)
+[![codebeat badge](https://codebeat.co/badges/6a941388-2e36-408b-952e-2bd227e3997c)](https://codebeat.co/projects/github-com-node-casbin-mongo-changestream-watcher-master)
+[![Coverage Status](https://coveralls.io/repos/github/node-casbin/mongo-changestream-watcher/badge.svg?branch=master)](https://coveralls.io/github/node-casbin/mongo-changestream-watcher?branch=master)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/casbin/lobby)
 [![tests](https://github.com/node-casbin/casbin-mongo-changestream-watcher/actions/workflows/main.yml/badge.svg)](https://github.com/node-casbin/casbin-mongo-changestream-watcher/actions/workflows/main.yml)
 
