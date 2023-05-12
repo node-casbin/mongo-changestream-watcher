@@ -93,9 +93,7 @@ export class MongoChangeStreamWatcher implements Watcher {
     watcher.changeStream = collection.watch(options?.streamAgregator, options?.streamOptions)
     watcher.changeStream.on('change', (next) => watcher.changeStreamHandler(next))
     watcher.changeStream.on('close', (next: any) => watcher.closeStreamHandler())
-    if (options?.waitStreamReady == null || options?.waitStreamReady === true) {
-      await this.streamReady(watcher.changeStream)
-    }
+    if (options?.waitStreamReady !== false) await this.streamReady(watcher.changeStream)
     return watcher
   }
 
