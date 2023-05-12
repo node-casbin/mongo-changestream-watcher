@@ -15,6 +15,7 @@ interface MongoChangeStreamWatcherOptions {
   readonly collectionName?: string
   readonly dbName?: string
   readonly callbackStreamCloseEvent?: boolean
+  readonly waitStreamReady?: boolean
   clientOptions?: MongoClientOptions
   streamOptions?: ChangeStreamOptions
   streamAgregator?: Document[]
@@ -92,7 +93,9 @@ export class MongoChangeStreamWatcher implements Watcher {
     watcher.changeStream = collection.watch(options?.streamAgregator, options?.streamOptions)
     watcher.changeStream.on('change', (next) => watcher.changeStreamHandler(next))
     watcher.changeStream.on('close', (next: any) => watcher.closeStreamHandler())
-    await this.streamReady(watcher.changeStream)
+    if (options?.waitStreamReady == null || options?.waitStreamReady === true) {
+      await this.streamReady(watcher.changeStream)
+    }
     return watcher
   }
 
