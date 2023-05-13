@@ -1,6 +1,6 @@
 {
   "name": "@casbin/mongo-changestream-watcher",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Casbin Watcher based on MongoDB Change Streams",
   "main": "lib/cjs/watcher.js",
   "typings": "lib/cjs/watcher.d.ts",

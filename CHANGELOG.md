@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/node-casbin/mongo-changestream-watcher/compare/v1.0.0...v1.1.0) (2023-05-13)
+
+
+### Features
+
+* add an option to wait for stream ready ([#9](https://github.com/node-casbin/mongo-changestream-watcher/issues/9)) ([9b03bbd](https://github.com/node-casbin/mongo-changestream-watcher/commit/9b03bbd9b5756e76a39e70b801c55eacf967f3be)), closes [#8](https://github.com/node-casbin/mongo-changestream-watcher/issues/8)
+
 # 1.0.0 (2022-08-26)
 
 
