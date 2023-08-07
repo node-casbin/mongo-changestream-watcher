@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/node-casbin/mongo-changestream-watcher/compare/v1.1.0...v1.1.1) (2023-08-07)
+
+
+### Bug Fixes
+
+* fix broken links ([#14](https://github.com/node-casbin/mongo-changestream-watcher/issues/14)) ([e5c3f76](https://github.com/node-casbin/mongo-changestream-watcher/commit/e5c3f76e30d528dcbba76f4ca040d99ed05e5cc8))
+
 # [1.1.0](https://github.com/node-casbin/mongo-changestream-watcher/compare/v1.0.0...v1.1.0) (2023-05-13)
 
 
