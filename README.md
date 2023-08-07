@@ -5,7 +5,7 @@
 [![codebeat badge](https://codebeat.co/badges/6a941388-2e36-408b-952e-2bd227e3997c)](https://codebeat.co/projects/github-com-node-casbin-mongo-changestream-watcher-master)
 [![Coverage Status](https://coveralls.io/repos/github/node-casbin/mongo-changestream-watcher/badge.svg?branch=master)](https://coveralls.io/github/node-casbin/mongo-changestream-watcher?branch=master)
 [![Discord](https://img.shields.io/discord/1022748306096537660?logo=discord&label=discord&color=5865F2)](https://discord.gg/S5UjpzGZjN)
-[![tests](https://github.com/node-casbin/mongo-changestream-watcher/actions/workflows/main.yml/badge.svg)](https://github.com/node-casbin/casbin-mongo-changestream-watcher/actions/workflows/main.yml)
+[![tests](https://github.com/node-casbin/mongo-changestream-watcher/actions/workflows/main.yml/badge.svg)](https://github.com/node-casbin/mongo-changestream-watcher/actions/workflows/main.yml)
 
 [npm-image]: https://img.shields.io/npm/v/@casbin/mongo-changestream-watcher.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/@casbin/mongo-changestream-watcher
