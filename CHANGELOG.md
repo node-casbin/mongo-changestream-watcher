@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/node-casbin/mongo-changestream-watcher/compare/v1.2.0...v1.3.0) (2025-11-05)
+
+
+### Features
+
+* improve README badges ([#18](https://github.com/node-casbin/mongo-changestream-watcher/issues/18)) ([01980ad](https://github.com/node-casbin/mongo-changestream-watcher/commit/01980ada1551620066b48a147351b0cd41cff83b))
+
 # [1.2.0](https://github.com/node-casbin/mongo-changestream-watcher/compare/v1.1.1...v1.2.0) (2025-11-05)
 
 
