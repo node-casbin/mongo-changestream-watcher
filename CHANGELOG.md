@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/node-casbin/mongo-changestream-watcher/compare/v1.1.1...v1.2.0) (2025-11-05)
+
+
+### Features
+
+* upgrade all packages, upgrade mongodb to v6 ([#16](https://github.com/node-casbin/mongo-changestream-watcher/issues/16)) ([a7a737d](https://github.com/node-casbin/mongo-changestream-watcher/commit/a7a737d09afca813aa981d4b57496851ac175894))
+
 ## [1.1.1](https://github.com/node-casbin/mongo-changestream-watcher/compare/v1.1.0...v1.1.1) (2023-08-07)
 
 
