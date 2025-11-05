@@ -1,12 +1,12 @@
 import { newEnforcer, Enforcer } from 'casbin'
-import { MongooseAdapter, CasbinRule } from 'casbin-mongoose-adapter'
+import { MongooseAdapter } from 'casbin-mongoose-adapter'
 import { MongoChangeStreamWatcher } from '../../src/watcher'
 
 describe('Watcher Tests', () => {
   let enforcer: Enforcer, watcher: MongoChangeStreamWatcher, watcher2: MongoChangeStreamWatcher, adapter: MongooseAdapter
   beforeAll(async () => {
     adapter = await MongooseAdapter.newAdapter('mongodb://localhost:27001,localhost:27002/casbin?replicaSet=rs0')
-    await CasbinRule.deleteMany()
+    await adapter.getCasbinRule().deleteMany()
     enforcer = await newEnforcer('test/fixtures/basic_model.conf', adapter)
   })
 
@@ -43,7 +43,7 @@ describe('Watcher Tests', () => {
       const spyDebug = jest.spyOn(watcher?.logger, 'debug')
       expect(watcher.toggleLogger()).toBe(true)
       watcher.setUpdateCallback(() => {
-        expect(spyDebug).toBeCalled()
+        expect(spyDebug).toHaveBeenCalled()
         resolve()
       })
       void enforcer.addPolicy('sub', 'obj', 'act')
@@ -91,7 +91,7 @@ describe('Watcher Tests', () => {
   })
 
   afterAll(async () => {
-    await CasbinRule.deleteMany()
+    await adapter.getCasbinRule().deleteMany()
     await watcher?.close()
     await watcher2?.close()
     await adapter?.close()
