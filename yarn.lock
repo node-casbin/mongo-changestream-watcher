@@ -4198,9 +4198,9 @@ mongodb@^6.20.0, mongodb@~6.20.0:
     mongodb-connection-string-url "^3.0.2"
 
 mongoose@^8.1.1:
-  version "8.19.3"
-  resolved "https://registry.npmjs.org/mongoose/-/mongoose-8.19.3.tgz#1c322eafd43d824bd4a87aa997012cb46e771441"
-  integrity sha512-fTAGaIohkk8wCggMuBuqTVD4YrM1/J8cBr1ekqzFqtz65qkLjtX2dcy3NH1e+2rk2365dyrrsPAnt4YTxBhEiQ==
+  version "8.23.1"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-8.23.1.tgz#ce36f9ba2212daa8afe52a2cfd55123a090a1f1f"
+  integrity sha512-gHSPD8qEwRmiXapK17hEnFWZdcFENMegHTcw5XIIg2+7R8eXQvdwSiMpD/A2oG8tKzFLLHyRXd8/eaDPAVwZgQ==
   dependencies:
     bson "^6.10.4"
     kareem "2.6.3"
